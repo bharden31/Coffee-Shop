@@ -1,4 +1,4 @@
-# Cafe Harden Orders
+# Casa Cafe Orders
 
 A tiny local-network coffee ordering service for Cafe Harden guests. Guests open the app on their phone, place an order, and you manage the queue from the barista view.
 
