@@ -1,0 +1,471 @@
+:root {
+  color-scheme: light;
+  --ink: #1d1b16;
+  --muted: #686255;
+  --paper: #fffaf0;
+  --panel: #ffffff;
+  --line: #ded4c3;
+  --accent: #1f7a67;
+  --accent-strong: #145245;
+  --warm: #b3541e;
+  --ready: #2d6cdf;
+  --done: #667085;
+  --shadow: 0 18px 45px rgba(64, 46, 24, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    linear-gradient(135deg, rgba(31, 122, 103, 0.16), transparent 34%),
+    linear-gradient(225deg, rgba(179, 84, 30, 0.16), transparent 38%),
+    var(--paper);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.barista-shell {
+  grid-template-columns: 1fr;
+}
+
+.guest-panel,
+.queue-panel {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.guest-panel {
+  padding: 26px;
+}
+
+.queue-panel {
+  padding: 22px;
+  position: sticky;
+  top: 20px;
+}
+
+.full-panel {
+  position: static;
+}
+
+.brand-row,
+.queue-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--warm);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+h1,
+h2 {
+  margin: 0;
+  line-height: 1.05;
+}
+
+h1 {
+  font-size: 4rem;
+  max-width: 720px;
+}
+
+h2 {
+  font-size: 1.65rem;
+}
+
+.barista-link {
+  color: var(--accent-strong);
+  text-decoration: none;
+  font-weight: 800;
+  white-space: nowrap;
+  border-bottom: 2px solid rgba(31, 122, 103, 0.28);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.order-form {
+  display: grid;
+  gap: 18px;
+}
+
+label,
+legend {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  color: var(--ink);
+  padding: 12px 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.drink-card {
+  min-height: 132px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  color: var(--ink);
+  padding: 16px;
+  text-align: left;
+  cursor: pointer;
+  display: grid;
+  gap: 8px;
+  transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.drink-card:hover,
+.drink-card:focus-visible,
+.drink-card.is-selected {
+  border-color: var(--accent);
+  box-shadow: 0 10px 28px rgba(31, 122, 103, 0.14);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.drink-card strong {
+  font-size: 1.1rem;
+}
+
+.drink-card span {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.choice-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.check-choice {
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.check-choice input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+.primary-button,
+.status-button {
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.compact-button {
+  min-height: 42px;
+  padding: 0 16px;
+}
+
+.primary-button {
+  min-height: 52px;
+  color: white;
+  background: var(--accent);
+}
+
+.primary-button:hover {
+  background: var(--accent-strong);
+}
+
+.form-message {
+  min-height: 22px;
+  margin: 0;
+  color: var(--accent-strong);
+  font-weight: 800;
+}
+
+.count-pill,
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  border-radius: 999px;
+  padding: 6px 11px;
+  font-size: 0.82rem;
+  font-weight: 900;
+  background: #ecf6f3;
+  color: var(--accent-strong);
+  white-space: nowrap;
+}
+
+.order-list,
+.barista-list {
+  display: grid;
+  gap: 12px;
+}
+
+.order-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 15px;
+  display: grid;
+  gap: 10px;
+}
+
+.guest-status {
+  margin-top: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  padding: 16px;
+}
+
+.guest-status.is-ready {
+  border-color: var(--ready);
+  box-shadow: 0 12px 30px rgba(45, 108, 223, 0.16);
+}
+
+.guest-actions {
+  margin-top: 14px;
+}
+
+.barista-tools {
+  margin-bottom: 16px;
+}
+
+.order-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+}
+
+.order-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.order-meta {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.order-note {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.status-pill.making {
+  background: #fff3e7;
+  color: var(--warm);
+}
+
+.status-pill.ready {
+  background: #ebf2ff;
+  color: var(--ready);
+}
+
+.status-pill.done {
+  background: #f2f4f7;
+  color: var(--done);
+}
+
+.status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.status-button {
+  padding: 9px 12px;
+  background: #f6f1e8;
+  color: var(--ink);
+}
+
+.status-button:hover {
+  background: #eadfce;
+}
+
+.empty-state {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.login-form {
+  max-width: 420px;
+}
+
+.admin-form,
+.admin-list,
+.admin-section,
+.admin-card,
+.admin-options {
+  display: grid;
+  gap: 16px;
+}
+
+.section-heading,
+.admin-card-header,
+.add-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.admin-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.admin-card h2,
+.option-block h3 {
+  margin: 0;
+}
+
+.option-block {
+  display: grid;
+  gap: 10px;
+}
+
+.default-select {
+  max-width: 260px;
+}
+
+.option-block h3 {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.admin-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.admin-syrup-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.admin-syrup-row .check-choice {
+  flex: 1;
+}
+
+.remove-button {
+  white-space: nowrap;
+}
+
+@media (max-width: 840px) {
+  .shell {
+    grid-template-columns: 1fr;
+    width: min(100% - 20px, 620px);
+    padding: 14px 0 24px;
+  }
+
+  .guest-panel,
+  .queue-panel {
+    padding: 18px;
+  }
+
+  .queue-panel {
+    position: static;
+  }
+
+  .brand-row,
+  .queue-header,
+  .section-heading,
+  .admin-card-header,
+  .add-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+}

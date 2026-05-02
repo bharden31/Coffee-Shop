@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin | Cafe Harden</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell barista-shell">
+      <section class="queue-panel full-panel" aria-labelledby="admin-title">
+        <div class="queue-header">
+          <div>
+            <p class="eyebrow">Cafe Harden admin</p>
+            <h1 id="admin-title">Menu configuration</h1>
+          </div>
+          <div class="nav-links">
+            <a class="barista-link" href="/">Guest view</a>
+            <a class="barista-link" href="/barista.html">Barista view</a>
+          </div>
+        </div>
+
+        <form id="login-form" class="admin-form login-form">
+          <label>
+            Admin password
+            <input id="admin-password" type="password" autocomplete="current-password" required>
+          </label>
+          <button class="primary-button" type="submit">Unlock admin</button>
+          <p id="login-message" class="form-message" role="status"></p>
+        </form>
+
+        <form id="admin-form" class="admin-form hidden">
+          <section class="admin-section" aria-labelledby="drinks-title">
+            <div class="section-heading">
+              <h2 id="drinks-title">Drinks</h2>
+              <button class="primary-button compact-button" type="submit">Save menu</button>
+            </div>
+            <div id="drink-config" class="admin-list" aria-live="polite"></div>
+          </section>
+
+          <section class="admin-section" aria-labelledby="milks-title">
+            <div class="section-heading">
+              <h2 id="milks-title">Milk</h2>
+            </div>
+            <div id="milk-config" class="choice-grid admin-choice-grid" aria-live="polite"></div>
+            <div class="add-row">
+              <input id="new-milk" placeholder="New milk option">
+              <button class="status-button" id="add-milk" type="button">Add milk</button>
+            </div>
+          </section>
+
+          <section class="admin-section" aria-labelledby="creamers-title">
+            <div class="section-heading">
+              <h2 id="creamers-title">Creamers</h2>
+            </div>
+            <div id="creamer-config" class="choice-grid admin-choice-grid" aria-live="polite"></div>
+            <div class="add-row">
+              <input id="new-creamer" placeholder="New creamer">
+              <button class="status-button" id="add-creamer" type="button">Add creamer</button>
+            </div>
+          </section>
+
+          <section class="admin-section" aria-labelledby="syrups-title">
+            <div class="section-heading">
+              <h2 id="syrups-title">Syrups</h2>
+            </div>
+            <div id="syrup-config" class="choice-grid admin-choice-grid" aria-live="polite"></div>
+            <div class="add-row">
+              <input id="new-syrup" placeholder="New syrup">
+              <button class="status-button" id="add-syrup" type="button">Add syrup</button>
+            </div>
+          </section>
+
+          <button class="primary-button" type="submit">Save menu</button>
+          <button class="status-button" id="lock-admin" type="button">Lock admin</button>
+          <p id="admin-message" class="form-message" role="status"></p>
+        </form>
+      </section>
+    </main>
+    <script src="/admin.js"></script>
+  </body>
+</html>

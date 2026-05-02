@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Barista View | Cafe Harden</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell barista-shell">
+      <section class="queue-panel full-panel" aria-labelledby="barista-title">
+        <div class="queue-header">
+          <div>
+            <p class="eyebrow">Cafe Harden</p>
+            <h1 id="barista-title">Coffee queue</h1>
+          </div>
+          <div class="nav-links">
+            <a class="barista-link" href="/">Guest view</a>
+            <a class="barista-link" href="/admin.html">Admin</a>
+          </div>
+        </div>
+        <form id="barista-login-form" class="admin-form login-form">
+          <label>
+            Barista password
+            <input id="barista-password" type="password" autocomplete="current-password" required>
+          </label>
+          <button class="primary-button" type="submit">Unlock queue</button>
+          <p id="barista-login-message" class="form-message" role="status"></p>
+        </form>
+
+        <section id="barista-app" class="hidden">
+          <div class="section-heading barista-tools">
+            <p id="archive-message" class="form-message" role="status"></p>
+            <div class="status-actions">
+              <button class="status-button" id="archive-completed" type="button">Archive completed</button>
+              <button class="status-button" id="lock-barista" type="button">Lock barista</button>
+            </div>
+          </div>
+          <div id="barista-orders" class="barista-list" aria-live="polite"></div>
+        </section>
+      </section>
+    </main>
+    <script src="/barista.js"></script>
+  </body>
+</html>

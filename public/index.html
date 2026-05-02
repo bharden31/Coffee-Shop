@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cafe Harden</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="guest-panel" aria-labelledby="guest-title">
+        <div class="brand-row">
+          <div>
+            <p class="eyebrow">Cafe Harden</p>
+            <h1 id="guest-title">Place a coffee order</h1>
+          </div>
+          <div class="nav-links">
+            <a class="barista-link" href="/barista.html">Barista view</a>
+            <a class="barista-link" href="/admin.html">Admin</a>
+          </div>
+        </div>
+
+        <form id="order-form" class="order-form">
+          <div class="section-heading compact-heading">
+            <p id="form-mode" class="eyebrow">New order</p>
+            <button class="status-button hidden" id="cancel-edit" type="button">Cancel edit</button>
+          </div>
+
+          <label>
+            Your name
+            <input id="guest-name" name="name" autocomplete="name" placeholder="Alex" required>
+          </label>
+
+          <fieldset>
+            <legend>Choose a drink</legend>
+            <div id="menu" class="menu-grid" aria-live="polite"></div>
+          </fieldset>
+
+          <div class="option-grid">
+            <label id="size-field">
+              Size
+              <select id="size" name="size"></select>
+            </label>
+            <label id="milk-field">
+              Milk
+              <select id="milk" name="milk"></select>
+            </label>
+            <label id="creamer-field">
+              Creamer
+              <select id="creamer" name="creamer"></select>
+            </label>
+            <label id="sweetness-field">
+              Sweetness
+              <select id="sweetness" name="sweetness"></select>
+            </label>
+          </div>
+
+          <fieldset id="syrups-field">
+            <legend>Syrups</legend>
+            <div id="syrups" class="choice-grid" aria-live="polite"></div>
+          </fieldset>
+
+          <label>
+            Notes
+            <textarea id="notes" name="notes" rows="3" placeholder="Extra hot, half-caf, no rush..."></textarea>
+          </label>
+
+          <button class="primary-button" id="submit-order" type="submit">Send order</button>
+          <p id="form-message" class="form-message" role="status"></p>
+        </form>
+
+        <section id="guest-status" class="guest-status hidden" aria-live="polite">
+          <p class="eyebrow">Your order</p>
+          <h2 id="guest-status-title">Order sent</h2>
+          <p id="guest-status-detail" class="order-meta"></p>
+          <div class="status-actions guest-actions">
+            <button class="status-button" id="edit-order" type="button">Edit order</button>
+            <button class="primary-button compact-button" id="new-order" type="button">New order</button>
+          </div>
+        </section>
+
+        <section id="guest-history" class="guest-status hidden" aria-labelledby="history-title">
+          <p class="eyebrow">This device</p>
+          <h2 id="history-title">Order history</h2>
+          <div id="history-list" class="order-list"></div>
+        </section>
+      </section>
+
+      <section class="queue-panel" aria-labelledby="queue-title">
+        <div class="queue-header">
+          <div>
+            <p class="eyebrow">Live queue</p>
+            <h2 id="queue-title">Today's orders</h2>
+          </div>
+          <span id="order-count" class="count-pill">0 waiting</span>
+        </div>
+        <div id="order-list" class="order-list" aria-live="polite"></div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
